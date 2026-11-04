@@ -14,8 +14,8 @@ export const NAV = [
   { label: 'Контакты', href: '#contact' },
 ]
 
-export const HERO_PORTRAIT =
-  'https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png'
+// Моё фото. Если появится 3D-аватар — положи его в public/ и поменяй имя файла здесь
+export const HERO_PORTRAIT = asset('me.png')
 
 export const ABOUT_TEXT =
   'Я Егор, делаю сайты для бизнеса и вкладываю в каждый проект душу. Кондитерская, компьютерный клуб, котокафе – мне нравится погружаться в чужое дело и показывать его с лучшей стороны. Расскажите о своей идее, и давайте сделаем что-то по-настоящему крутое вместе!'
