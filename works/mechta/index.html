@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>«Мечта» — семейная кондитерская в Челябинске | торты по ГОСТу</title>
+  <meta name="description" content="Торты, пирожные, пироги, рулеты и печенье по советским ГОСТам из натуральных продуктов. 30 лет в Челябинске: ул. Горького, 22 и ул. Бейвеля, 37А. Тел. +7 (912) 328-51-31.">
+  <meta name="theme-color" content="#f6efe4">
+  <link rel="icon" href="assets/mechta-logo.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    // Скрытые состояния анимаций включаются только с JS. Если основной скрипт не загрузился — показываем всё как есть.
+    document.documentElement.classList.add('js');
+    addEventListener('load', () => { if (!window.MECHTA_UI) document.documentElement.classList.remove('js'); });
+  </script>
+</head>
+
+<body>
+  <!-- Спрайт SVG-иконок (контур в стиле Lucide) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20M7 8v3M12 8v3M17 8v3M7 4h.01M12 4h.01M17 4h.01"/></symbol>
+    <symbol id="i-cupcake" viewBox="0 0 24 24"><path d="M5 12h14l-2 9H7Z"/><path d="M5 12a3 3 0 0 1 1-5.8A5 5 0 0 1 12 3a5 5 0 0 1 6 3.2A3 3 0 0 1 19 12"/><path d="m10 12 .5 9M14 12l-.5 9"/></symbol>
+    <symbol id="i-pie" viewBox="0 0 24 24"><path d="M2 16h20l-2 4H4Z"/><path d="M3 16c1-6 5-9 9-9s8 3 9 9"/><path d="m8.5 12 1.2 1.6M13.5 10.5l1.2 1.6"/></symbol>
+    <symbol id="i-roll" viewBox="0 0 24 24"><circle cx="7.5" cy="14" r="5"/><path d="M7.5 14a1.6 1.6 0 1 1 1.6-1.6"/><path d="M7.5 9H17a5 5 0 0 1 0 10H7.5"/></symbol>
+    <symbol id="i-cookie" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01M16 15.5v.01M12 12v.01M11 17v.01M7 14v.01"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3c.6 4.4 1.8 5.6 6 6-4.2.4-5.4 1.6-6 6-.6-4.4-1.8-5.6-6-6 4.2-.4 5.4-1.6 6-6Z"/><path d="M19 15c.2 1.6.8 2.2 2.5 2.5-1.7.3-2.3.9-2.5 2.5-.2-1.6-.8-2.2-2.5-2.5 1.7-.3 2.3-.9 2.5-2.5Z"/></symbol>
+    <symbol id="i-wheat" viewBox="0 0 24 24"><path d="M12 22V9"/><path d="M12 9c-2.2-.8-3.4-2.8-3.4-5.4C10.8 3.6 12 5 12 6.6 12 5 13.2 3.6 15.4 3.6 15.4 6.2 14.2 8.2 12 9Z"/><path d="M12 15c-2.6-.6-4.4-2.4-4.4-5 2.4 0 4 1.4 4.4 3 .4-1.6 2-3 4.4-3 0 2.6-1.8 4.4-4.4 5Z"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-tower" viewBox="0 0 24 24"><path d="M12 2v3"/><path d="M9 8a3 3 0 0 1 6 0"/><path d="M8 8h8v4H8z"/><path d="M6 12h12v10H6z"/><path d="M10 22v-4a2 2 0 0 1 4 0v4"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M14.1 5.55a2 2 0 0 0 1.8 0l3.65-1.83A1 1 0 0 1 21 4.62v12.76a1 1 0 0 1-.55.9l-4.55 2.27a2 2 0 0 1-1.8 0l-4.2-2.1a2 2 0 0 0-1.8 0l-3.65 1.83A1 1 0 0 1 3 19.38V6.62a1 1 0 0 1 .55-.9L8.1 3.45a2 2 0 0 1 1.8 0Z"/><path d="M15 5.76v15M9 3.24v15"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+    <symbol id="i-cherry" viewBox="0 0 24 24"><circle cx="7" cy="17" r="4" fill="currentColor" stroke="none"/><circle cx="17" cy="18" r="4" fill="currentColor" stroke="none"/><path d="M7 13c1-5 4-8 9-10M17 14c-.5-4-1-7-1-11"/><path d="M16 3c2 0 4 1 5 3-2 .5-4 0-5-3Z" fill="currentColor"/></symbol>
+  </svg>
+
+  <a href="#main" class="skip">К содержимому</a>
+
+  <!-- ===================== Nav ===================== -->
+  <header class="nav" id="nav">
+    <div class="wrap nav-in">
+      <nav class="nav-l" aria-label="Основное меню">
+        <a class="pill" data-nav-link href="#home">Главная</a>
+        <a class="pill" data-nav-link href="#showcase">Витрина</a>
+        <a class="pill" data-nav-link href="#how">Как заказать</a>
+      </nav>
+      <a class="logo" href="#home" aria-label="Кондитерская «Мечта» — на главную">
+        <img src="assets/mechta-logo.svg" alt="" width="40" height="40">
+        <span><b>Мечта</b>семейная кондитерская</span>
+      </a>
+      <div class="nav-r">
+        <nav class="nav-r-links" aria-label="Основное меню, продолжение">
+          <a class="pill" data-nav-link href="#about">О нас</a>
+          <a class="pill" data-nav-link href="#contacts">Адреса</a>
+        </nav>
+        <a class="btn-dark" href="tel:+79123285131"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>328-51-31</a>
+        <button class="burger" id="burger" type="button" aria-controls="mmenu" aria-expanded="false" aria-label="Открыть меню"><i></i><i></i></button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mmenu" id="mmenu" aria-label="Мобильное меню" inert>
+    <a data-nav-link href="#home">Главная</a>
+    <a data-nav-link href="#showcase">Витрина</a>
+    <a data-nav-link href="#how">Как заказать</a>
+    <a data-nav-link href="#about">О нас</a>
+    <a data-nav-link href="#contacts">Адреса</a>
+    <a class="btn-dark" href="tel:+79123285131">Позвонить: 328-51-31</a>
+  </nav>
+
+  <main id="main">
+    <!-- ===================== Hero ===================== -->
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="hero-head">
+          <p class="hero-loc rv" style="--base:300ms"><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg>Семейная кондитерская «Мечта» · Челябинск</p>
+          <h1 class="h-display split" data-split style="--base:150ms">Тот самый торт <em>из детства</em></h1>
+          <p class="hero-sub rv" style="--base:700ms">30 лет печём торты, пирожные и пироги по советским ГОСТам — только из натуральных продуктов. Две кондитерские: на Горького и у старой башни в Парковом.</p>
+          <div class="hero-cta rv" style="--base:780ms">
+            <a class="btn-dark btn-lg" href="tel:+79123285131"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить и заказать</a>
+            <a class="btn-line btn-lg" href="#showcase">Что сегодня на витрине</a>
+          </div>
+        </div>
+
+        <div class="hero-card rv rv-scale" style="--base:850ms">
+          <div class="media kb scene scene-hero" aria-hidden="true"></div>
+          <div class="shade" aria-hidden="true"></div>
+
+          <!-- печать «ГОСТ» -->
+          <svg class="stamp" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="stamp-c" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0"/></defs>
+            <circle cx="100" cy="100" r="96" fill="#b3261e"/>
+            <circle cx="100" cy="100" r="88" fill="none" stroke="#f6efe4" stroke-width="1.5" stroke-dasharray="2 5"/>
+            <g class="stamp-ring"><text font-family="Inter Tight, sans-serif" font-size="13" font-weight="500" fill="#f6efe4"><textPath href="#stamp-c" textLength="458" lengthAdjust="spacing">НАТУРАЛЬНЫЕ ПРОДУКТЫ · 30 ЛЕТ В ЧЕЛЯБИНСКЕ · </textPath></text></g>
+            <circle cx="100" cy="100" r="50" fill="#f6efe4"/>
+            <text x="100" y="98" text-anchor="middle" font-family="Playfair Display, serif" font-weight="600" font-size="30" fill="#b3261e">ГОСТ</text>
+            <text x="100" y="122" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" letter-spacing="2" fill="#3a1a0e">РЕЦЕПТЫ</text>
+          </svg>
+
+          <div class="studio" id="studio">
+            <div class="chat" aria-label="Пример переписки с кондитерской">
+              <div class="chat-top msg">Чат с «Мечтой» <svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></div>
+              <div class="bubble msg">Здравствуйте! Сыну исполняется семь. Какой торт посоветуете?</div>
+              <div class="ai msg"><div class="ai-ic"><img src="assets/mechta-logo.svg" alt="" width="20" height="20"></div><div class="ai-t" data-chat="cake"></div></div>
+              <div class="bubble msg">А где вас найти?</div>
+              <div class="ai msg"><div class="ai-ic"><img src="assets/mechta-logo.svg" alt="" width="20" height="20"></div><div class="ai-t" data-chat="where"></div></div>
+              <div class="cd msg">
+                <div><small>Ваш выбор</small><strong>Торт «Лягушки»</strong></div>
+                <div class="cd-price"><small>Цена</small><strong class="tag" data-price="frogs"></strong></div>
+              </div>
+            </div>
+            <div class="prod">
+              <span class="msg">Сегодня на витрине</span>
+              <figure id="hero-fig" class="msg">
+                <svg class="art" viewBox="0 0 400 360" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Двухъярусный торт с вишнями и свечами">
+                  <defs>
+                    <linearGradient id="fig-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbe3d6"/><stop offset="1" stop-color="#f1c2aa"/></linearGradient>
+                    <radialGradient id="fig-sun" cx=".78" cy=".18" r=".55"><stop offset="0" stop-color="#fff4e2"/><stop offset="1" stop-color="#fff4e2" stop-opacity="0"/></radialGradient>
+                    <radialGradient id="flame" cx=".5" cy=".7" r=".6"><stop offset="0" stop-color="#fff6c8"/><stop offset=".55" stop-color="#ffc54a"/><stop offset="1" stop-color="#ff8a3a" stop-opacity=".2"/></radialGradient>
+                  </defs>
+                  <rect x="-200" y="-100" width="800" height="560" fill="url(#fig-bg)"/>
+                  <rect x="-200" y="-100" width="800" height="560" fill="url(#fig-sun)"/>
+                  <g fill="#fff8ec" opacity=".35"><path d="M250 -40 l60 0 -120 420 -60 0z"/><path d="M340 -40 l30 0 -120 420 -30 0z"/></g>
+                  <g class="twinkle" fill="#fffaf0">
+                    <path d="M70 70 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z"/>
+                    <path d="M330 120 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z"/>
+                    <path d="M300 48 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z"/>
+                  </g>
+                  <!-- салфетка и тарелка -->
+                  <g fill="#fffaf2" opacity=".9">
+                    <ellipse cx="200" cy="318" rx="172" ry="30"/>
+                  </g>
+                  <g fill="#f1c2aa">
+                    <circle cx="40" cy="318" r="5"/><circle cx="62" cy="330" r="5"/><circle cx="92" cy="339" r="5"/><circle cx="126" cy="344" r="5"/><circle cx="162" cy="347" r="5"/><circle cx="200" cy="348" r="5"/><circle cx="238" cy="347" r="5"/><circle cx="274" cy="344" r="5"/><circle cx="308" cy="339" r="5"/><circle cx="338" cy="330" r="5"/><circle cx="360" cy="318" r="5"/>
+                  </g>
+                  <ellipse cx="200" cy="314" rx="146" ry="19" fill="#ffffff"/>
+                  <g class="cake-bob">
+                    <rect x="80" y="218" width="240" height="84" fill="#f3cfa2"/>
+                    <ellipse cx="200" cy="302" rx="120" ry="15" fill="#f3cfa2"/>
+                    <rect x="80" y="256" width="240" height="9" fill="#e98a9a" opacity=".75"/>
+                    <ellipse cx="200" cy="218" rx="120" ry="15" fill="#fff1df"/>
+                    <path d="M80 222 q15 16 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" stroke="#fffaf2" stroke-width="9" fill="none" stroke-linecap="round"/>
+                    <g fill="#fffaf2">
+                      <circle cx="92" cy="300" r="7"/><circle cx="114" cy="305" r="7"/><circle cx="137" cy="309" r="7"/><circle cx="161" cy="311" r="7"/><circle cx="186" cy="312" r="7"/><circle cx="212" cy="312" r="7"/><circle cx="238" cy="311" r="7"/><circle cx="262" cy="309" r="7"/><circle cx="285" cy="305" r="7"/><circle cx="307" cy="300" r="7"/>
+                    </g>
+                    <rect x="130" y="152" width="140" height="66" fill="#fbe6cf"/>
+                    <ellipse cx="200" cy="218" rx="70" ry="10" fill="#fbe6cf"/>
+                    <path d="M130 152 h140 v14 q-8 14 -14 0 q-8 20 -16 0 q-8 12 -16 0 q-8 22 -16 0 q-8 12 -16 0 q-8 18 -16 0 q-8 12 -16 0 q-8 16 -16 0 q-7 12 -14 0 z" fill="#ec8fa0"/>
+                    <ellipse cx="200" cy="152" rx="70" ry="11" fill="#f4a7b4"/>
+                    <g>
+                      <rect x="171" y="104" width="9" height="46" rx="3" fill="#fffaf2"/>
+                      <rect x="196" y="98" width="9" height="52" rx="3" fill="#f2c94c"/>
+                      <rect x="221" y="104" width="9" height="46" rx="3" fill="#fffaf2"/>
+                      <path d="M171 116 l9 -6 M171 130 l9 -6 M171 144 l9 -6 M221 116 l9 -6 M221 130 l9 -6 M221 144 l9 -6" stroke="#e98a9a" stroke-width="3"/>
+                      <path d="M196 112 l9 -6 M196 126 l9 -6 M196 140 l9 -6" stroke="#fffaf2" stroke-width="3"/>
+                    </g>
+                    <g class="flames" fill="url(#flame)">
+                      <ellipse class="flame" cx="175.5" cy="94" rx="6" ry="11"/>
+                      <ellipse class="flame" cx="200.5" cy="88" rx="6" ry="11"/>
+                      <ellipse class="flame" cx="225.5" cy="94" rx="6" ry="11"/>
+                    </g>
+                    <path d="M150 140 q4 -14 14 -18 M252 140 q-4 -14 -14 -18" stroke="#6db35a" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+                    <circle cx="150" cy="144" r="10" fill="#c4392d"/><circle cx="146" cy="140" r="3" fill="#fff" opacity=".65"/>
+                    <circle cx="252" cy="144" r="10" fill="#c4392d"/><circle cx="248" cy="140" r="3" fill="#fff" opacity=".65"/>
+                  </g>
+                </svg>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- бегущая строка -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Торты</span><svg class="ic"><use href="#i-cherry"/></svg><span>Пирожные</span><svg class="ic"><use href="#i-cherry"/></svg><span>Пироги</span><svg class="ic"><use href="#i-cherry"/></svg><span>Рулеты</span><svg class="ic"><use href="#i-cherry"/></svg><span>Печенье</span><svg class="ic"><use href="#i-cherry"/></svg><span>Меренги</span><svg class="ic"><use href="#i-cherry"/></svg><span>По ГОСТу</span><svg class="ic"><use href="#i-cherry"/></svg>
+        <span>Торты</span><svg class="ic"><use href="#i-cherry"/></svg><span>Пирожные</span><svg class="ic"><use href="#i-cherry"/></svg><span>Пироги</span><svg class="ic"><use href="#i-cherry"/></svg><span>Рулеты</span><svg class="ic"><use href="#i-cherry"/></svg><span>Печенье</span><svg class="ic"><use href="#i-cherry"/></svg><span>Меренги</span><svg class="ic"><use href="#i-cherry"/></svg><span>По ГОСТу</span><svg class="ic"><use href="#i-cherry"/></svg>
+      </div>
+    </div>
+
+    <!-- ===================== Витрина ===================== -->
+    <section class="s-showcase" id="showcase" aria-labelledby="showcase-title">
+      <div class="wrap">
+        <div class="tariff-shell">
+          <div class="sec-head">
+            <span class="eyebrow rv">Из нашего каталога</span>
+            <h2 class="h2 split" id="showcase-title" data-split>Сегодня <span class="lt">на витрине</span></h2>
+            <p class="lead rv" style="--d:3">Свадебные, детские и чайные торты, рулеты и меренги. Цены — как в нашем каталоге ВКонтакте; что есть прямо сейчас, подскажем по телефону.</p>
+          </div>
+
+          <div class="tabs rv" style="--d:4">
+            <div role="tablist" aria-label="Раздел витрины" class="tablist">
+              <button type="button" role="tab" id="tab-all" aria-controls="goods" data-goods-tab="all" class="tab">Всё</button>
+              <button type="button" role="tab" id="tab-cakes" aria-controls="goods" data-goods-tab="cakes" class="tab">Торты</button>
+              <button type="button" role="tab" id="tab-desserts" aria-controls="goods" data-goods-tab="desserts" class="tab">Рулеты и десерты</button>
+            </div>
+          </div>
+
+          <div id="goods" role="tabpanel" aria-live="polite" class="goods-grid"></div>
+          <noscript><p class="lead">Включите JavaScript, чтобы увидеть витрину, или позвоните: +7 (912) 328-51-31.</p></noscript>
+
+          <div class="goods-more rv">
+            <a class="btn-line" href="https://vk.com/mechta_bashnya" target="_blank" rel="noopener">Весь каталог во ВКонтакте<span class="sr-only"> (откроется в новой вкладке)</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Как заказать ===================== -->
+    <section class="s-how" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow rv">Проще, чем кажется</span>
+          <h2 class="h2 split" id="how-title" data-split>Как <span class="lt">заказать</span></h2>
+        </div>
+        <ol class="steps">
+          <li class="step rv" style="--d:1">
+            <span class="step-n" aria-hidden="true">1</span>
+            <span class="step-ic" aria-hidden="true"><svg class="ic"><use href="#i-list"/></svg></span>
+            <h3>Выберите</h3>
+            <p>Загляните на витрину и сложите заказ в калькуляторе — сумма посчитается сразу.</p>
+          </li>
+          <li class="step rv" style="--d:2">
+            <span class="step-n" aria-hidden="true">2</span>
+            <span class="step-ic" aria-hidden="true"><svg class="ic"><use href="#i-phone"/></svg></span>
+            <h3>Позвоните</h3>
+            <p><a class="c-link" href="tel:+79123285131">+7 (912) 328-51-31</a> — расскажем, что есть сегодня, и ответим на вопросы.</p>
+          </li>
+          <li class="step rv" style="--d:3">
+            <span class="step-n" aria-hidden="true">3</span>
+            <span class="step-ic" aria-hidden="true"><svg class="ic"><use href="#i-bag"/></svg></span>
+            <h3>Заберите</h3>
+            <p>В кондитерской на Горького, 22 или на Бейвеля, 37А — выбирайте, что ближе.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== Калькулятор заказа ===================== -->
+    <section class="s-calc" id="order" data-nav-section="how" aria-labelledby="calc-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow rv">Без сюрпризов</span>
+          <h2 class="h2 split" id="calc-title" data-split>Посчитать <span class="lt">заказ</span></h2>
+          <p class="lead rv" style="--d:3">Нажмите «+» у того, что хотите взять. Итог увидите справа — с ним и звоните.</p>
+        </div>
+
+        <form id="calc" class="calc rv rv-scale" onsubmit="return false">
+          <div class="calc-l">
+            <p class="calc-lbl" id="calc-list-lbl">Торты и десерты</p>
+            <ul class="calc-list" id="calc-list" aria-labelledby="calc-list-lbl"></ul>
+          </div>
+
+          <div class="calc-r" aria-live="polite">
+            <svg class="ic calc-paw" aria-hidden="true"><use href="#i-cake"/></svg>
+            <div>
+              <p class="lbl">В вашем заказе</p>
+              <p id="calc-count" class="calc-per"></p>
+              <ul id="calc-break" class="calc-break"></ul>
+            </div>
+            <div class="calc-sum">
+              <p class="lbl">Итого</p>
+              <p id="calc-total" class="calc-total"></p>
+              <a class="btn-berry btn-block" href="tel:+79123285131">Позвонить и заказать</a>
+              <button type="button" class="calc-reset" id="calc-reset">Очистить</button>
+            </div>
+          </div>
+        </form>
+        <p class="calc-note rv">Расчёт предварительный: цены взяты из каталога и могут меняться.</p>
+      </div>
+    </section>
+
+    <!-- ===================== О нас (bento) ===================== -->
+    <section class="s-bento" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <div class="bento-shell">
+          <div class="media kb scene scene-bento" aria-hidden="true"></div>
+          <div class="sec-head">
+            <span class="eyebrow rv">С 30-летней историей</span>
+            <h2 class="h2 split" id="about-title" data-split>Почему <span class="lt">«Мечта»</span></h2>
+            <p class="lead lead-wide rv" style="--d:3">
+              Мы не придумываем рецепты заново — мы бережём старые. Советские ГОСТы, настоящее масло и сливки,
+              никаких заменителей. Поэтому вкус «как в детстве» у нас не слоган, а технология.
+            </p>
+          </div>
+
+          <div class="bento">
+            <article class="card c-big rv" style="--d:1">
+              <svg class="c-big-art" viewBox="0 0 400 560" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="big-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a65a3c"/><stop offset=".55" stop-color="#eebf95"/><stop offset="1" stop-color="#f6dcbd"/></linearGradient>
+                  <linearGradient id="tw-brick" x1="0" x2="1"><stop offset="0" stop-color="#5b2a1a"/><stop offset=".6" stop-color="#93492d"/><stop offset="1" stop-color="#6a321f"/></linearGradient>
+                  <linearGradient id="tw-trim" x1="0" x2="1"><stop offset="0" stop-color="#d8b88a"/><stop offset=".7" stop-color="#fff1d6"/><stop offset="1" stop-color="#c9a678"/></linearGradient>
+                  <linearGradient id="tw-dome" x1="0" x2="1"><stop offset="0" stop-color="#b98b2c"/><stop offset=".65" stop-color="#ffe08a"/><stop offset="1" stop-color="#b98b2c"/></linearGradient>
+                </defs>
+                <rect x="-300" y="0" width="1000" height="560" fill="url(#big-bg)"/>
+                <g fill="#fff6e8" opacity=".25"><path d="M260 0 h70 L170 560 h-70z"/><path d="M370 0 h36 L246 560 h-36z"/></g>
+                <circle cx="200" cy="360" r="170" fill="none" stroke="#fff3dc" stroke-width="2" opacity=".55"/>
+                <g transform="translate(-160 112) scale(.45)">
+                  <rect x="600" y="760" width="400" height="240" fill="url(#tw-brick)"/>
+                  <rect x="580" y="740" width="440" height="24" fill="url(#tw-trim)"/>
+                  <rect x="650" y="540" width="300" height="200" fill="url(#tw-brick)"/>
+                  <rect x="662" y="548" width="10" height="192" fill="url(#tw-trim)" opacity=".6"/>
+                  <rect x="795" y="548" width="10" height="192" fill="url(#tw-trim)" opacity=".6"/>
+                  <rect x="928" y="548" width="10" height="192" fill="url(#tw-trim)" opacity=".6"/>
+                  <rect x="632" y="522" width="336" height="22" fill="url(#tw-trim)"/>
+                  <rect x="700" y="390" width="200" height="132" fill="url(#tw-brick)"/>
+                  <rect x="686" y="374" width="228" height="18" fill="url(#tw-trim)"/>
+                  <rect x="740" y="302" width="120" height="72" fill="url(#tw-brick)"/>
+                  <path d="M728 306 C 736 226, 864 226, 872 306 Z" fill="url(#tw-dome)"/>
+                  <rect x="786" y="218" width="28" height="44" fill="url(#tw-brick)"/>
+                  <path d="M778 222 Q800 192 822 222 Z" fill="url(#tw-dome)"/>
+                  <path d="M793 200 L800 110 L807 200 Z" fill="url(#tw-dome)"/>
+                  <circle cx="800" cy="150" r="7" fill="#ffe08a"/>
+                  <g fill="#ffd36b">
+                    <path d="M650 940 V858 A30 30 0 0 1 710 858 V940 Z"/>
+                    <path d="M890 940 V858 A30 30 0 0 1 950 858 V940 Z"/>
+                    <path d="M760 1000 V862 A40 40 0 0 1 840 862 V1000 Z"/>
+                    <path d="M700 712 V622 A30 30 0 0 1 760 622 V712 Z"/>
+                    <path d="M840 712 V622 A30 30 0 0 1 900 622 V712 Z"/>
+                    <path d="M722 508 V442 A18 18 0 0 1 758 442 V508 Z"/>
+                    <path d="M782 508 V442 A18 18 0 0 1 818 442 V508 Z"/>
+                    <path d="M842 508 V442 A18 18 0 0 1 878 442 V508 Z"/>
+                    <path d="M770 358 V328 A7 7 0 0 1 784 328 V358 Z"/>
+                    <path d="M816 358 V328 A7 7 0 0 1 830 328 V358 Z"/>
+                  </g>
+                </g>
+              </svg>
+              <div>
+                <h3>Мечта у старой башни<br><span>— наш дом в Парковом.</span></h3>
+                <p class="desc">Открылись в 2022 году на Бейвеля, 37А. Первая «Мечта» по-прежнему ждёт на Горького, 22.</p>
+              </div>
+              <div>
+                <p class="desc desc-strong">Скоро — новые кондитерские и в других районах Челябинска.</p>
+                <a class="btn-white" href="#contacts">Как нас найти</a>
+              </div>
+            </article>
+
+            <article class="card c-pad c-list rv" style="--d:2">
+              <ul class="rows" aria-label="Почему «Мечта»">
+                <li class="row" style="--i:0"><span class="ri" aria-hidden="true"><svg class="ic"><use href="#i-wheat"/></svg></span><b>Только натуральные продукты</b><span class="ok" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span></li>
+                <li class="row" style="--i:1"><span class="ri" aria-hidden="true"><svg class="ic"><use href="#i-award"/></svg></span><b>Рецепты по советскому ГОСТу</b><span class="ok" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span></li>
+                <li class="row" style="--i:2"><span class="ri" aria-hidden="true"><svg class="ic"><use href="#i-star"/></svg></span><b>30 лет в кондитерском деле</b><span class="ok" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span></li>
+                <li class="row" style="--i:3"><span class="ri" aria-hidden="true"><svg class="ic"><use href="#i-users"/></svg></span><b>Семейное дело, не сеть</b><span class="ok" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span></li>
+                <li class="row" style="--i:4"><span class="ri" aria-hidden="true"><svg class="ic"><use href="#i-tower"/></svg></span><b>Две кондитерские в городе</b><span class="ok" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span></li>
+              </ul>
+              <div class="txt"><h4>Наши правила</h4></div>
+            </article>
+
+            <article class="card c-pad rv" style="--d:3">
+              <div class="insight insight-sofa" aria-hidden="true">
+                <p class="insight-num">10,9<small>тыс.</small></p>
+                <span class="chip"><i></i>ВКонтакте</span>
+              </div>
+              <div class="txt"><h4>Нас читают и ждут</h4><p>«Мечту» знают во многих районах Челябинска — и даже за его пределами.</p></div>
+            </article>
+
+            <article class="card c-pad rv" style="--d:4">
+              <div class="insight insight-cake" aria-hidden="true">
+                <svg class="ic insight-ic"><use href="#i-gift"/></svg>
+                <span class="chip"><i></i>К празднику</span>
+              </div>
+              <div class="txt"><h4>Торт на ваш повод</h4><p>Свадьба, день рождения, просто воскресенье — найдём торт на витрине.</p></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Что печём ===================== -->
+    <section class="s-rules" id="assortment" data-nav-section="about" aria-labelledby="assortment-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow rv">Своими руками</span>
+          <h2 class="h2 split" id="assortment-title" data-split>Что мы <span class="lt">печём</span></h2>
+          <p class="lead rv" style="--d:3">Шесть вещей, которые у нас получаются лучше всего.</p>
+        </div>
+
+        <ol class="rules">
+          <li class="g-card rule rv" style="--d:1"><span class="rule-ic" aria-hidden="true"><svg class="ic"><use href="#i-cake"/></svg></span><div><span class="lbl" aria-hidden="true">01</span><h3>Торты</h3><p>Свадебные в несколько ярусов, детские с фигурками, классические к чаю.</p></div></li>
+          <li class="g-card rule rv" style="--d:2"><span class="rule-ic" aria-hidden="true"><svg class="ic"><use href="#i-cupcake"/></svg></span><div><span class="lbl" aria-hidden="true">02</span><h3>Пирожные</h3><p>С настоящим кремом — в гости, на работу или себе.</p></div></li>
+          <li class="g-card rule rv" style="--d:3"><span class="rule-ic" aria-hidden="true"><svg class="ic"><use href="#i-pie"/></svg></span><div><span class="lbl" aria-hidden="true">03</span><h3>Пироги</h3><p>Домашние, к большому семейному столу.</p></div></li>
+          <li class="g-card rule rv" style="--d:4"><span class="rule-ic" aria-hidden="true"><svg class="ic"><use href="#i-roll"/></svg></span><div><span class="lbl" aria-hidden="true">04</span><h3>Рулеты</h3><p>Мягкий бисквит и белковый крем — как раньше.</p></div></li>
+          <li class="g-card rule rv" style="--d:5"><span class="rule-ic" aria-hidden="true"><svg class="ic"><use href="#i-cookie"/></svg></span><div><span class="lbl" aria-hidden="true">05</span><h3>Печенье</h3><p>Рассыпчатое — к чаю дома и в дорогу.</p></div></li>
+          <li class="g-card rule rv" style="--d:6"><span class="rule-ic" aria-hidden="true"><svg class="ic"><use href="#i-sparkle"/></svg></span><div><span class="lbl" aria-hidden="true">06</span><h3>Меренги</h3><p>Хрустящие разноцветные завитки безе на палочке.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== Контакты + CTA ===================== -->
+    <section class="s-contacts" id="contacts" aria-labelledby="contacts-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow rv">Заходите</span>
+          <h2 class="h2 split" id="contacts-title" data-split>Две <span class="lt">«Мечты»</span> в Челябинске</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="g-card contact-card rv" style="--d:1">
+            <div class="places" role="tablist" aria-label="Кондитерская на карте">
+              <button type="button" role="tab" class="place" data-place="0" aria-controls="map">
+                <span class="c-ic" aria-hidden="true"><svg class="ic"><use href="#i-map-pin"/></svg></span>
+                <span>
+                  <span class="lbl">Тракторозаводский район</span>
+                  <span class="place-addr">ул. Горького, 22</span>
+                  <span class="place-note">Первая «Мечта» — с неё всё началось</span>
+                </span>
+              </button>
+              <button type="button" role="tab" class="place" data-place="1" aria-controls="map">
+                <span class="c-ic" aria-hidden="true"><svg class="ic"><use href="#i-tower"/></svg></span>
+                <span>
+                  <span class="lbl">Мкр. «Парковый»</span>
+                  <span class="place-addr">ул. Бейвеля, 37А</span>
+                  <span class="place-note">«Мечта у старой башни», с 2022 года</span>
+                </span>
+              </button>
+            </div>
+            <div class="c-row">
+              <span class="c-ic" aria-hidden="true"><svg class="ic"><use href="#i-clock"/></svg></span>
+              <div>
+                <h3 class="lbl">Режим работы</h3>
+                <!-- TODO: уточнить полный режим работы по дням -->
+                <p>До 20:00 · уточняйте по телефону</p>
+              </div>
+            </div>
+            <div class="c-row">
+              <span class="c-ic" aria-hidden="true"><svg class="ic"><use href="#i-phone"/></svg></span>
+              <div>
+                <h3 class="lbl">Телефон</h3>
+                <a class="c-link" href="tel:+79123285131">+7 (912) 328-51-31</a>
+              </div>
+            </div>
+            <div class="c-actions">
+              <a class="btn-dark btn-block" href="tel:+79123285131">Позвонить и заказать</a>
+              <a class="btn-line btn-block" id="route" href="#" target="_blank" rel="noopener">
+                Построить маршрут<span class="sr-only"> (откроется в новой вкладке)</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="map rv" style="--d:2">
+            <div class="map-ph" aria-hidden="true">
+              <svg class="ic"><use href="#i-map"/></svg>
+              <span>Загружаем карту…</span>
+            </div>
+            <iframe id="map" title="Кондитерская «Мечта» на Яндекс.Картах" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="cta rv rv-scale">
+          <div class="media kb scene scene-cta" aria-hidden="true"></div>
+          <div class="cta-art" data-parallax aria-hidden="true">
+            <figure class="polaroid p1"><img src="photos/wedding-2.jpg" alt="" width="268" height="324"></figure>
+            <figure class="polaroid p2"><img src="photos/frogs.jpg" alt="" width="268" height="324"></figure>
+            <figure class="polaroid p3"><img src="photos/meringue.jpg" alt="" width="268" height="324"></figure>
+          </div>
+          <h2 class="split" data-split>Вкус родом <em>из детства</em></h2>
+          <p class="rv" style="--d:2">Позвоните — расскажем, что сегодня на витрине, и поможем выбрать торт к вашему празднику.</p>
+          <div class="cta-actions rv" style="--d:3">
+            <a class="btn-dark btn-lg" href="tel:+79123285131"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>+7 (912) 328-51-31</a>
+            <a class="btn-glass btn-lg" href="#showcase">Смотреть витрину</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="about rv">
+          <a class="foot-brand" href="#home"><img src="assets/mechta-logo.svg" alt="" width="36" height="36"><span><b>Мечта</b> семейная кондитерская</span></a>
+          <p>Торты, пирожные, пироги, рулеты и печенье по советским ГОСТам. Челябинск, с 30-летней историей.</p>
+          <ul class="socials" aria-label="Мы в соцсетях">
+            <li><a href="https://vk.com/mechta_bashnya" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.8 17.5c-5.5 0-8.6-3.8-8.7-10h2.8c.1 4.6 2.1 6.5 3.7 6.9V7.5h2.6v3.9c1.6-.2 3.3-2 3.8-3.9h2.6c-.4 2.4-2.2 4.2-3.4 4.9 1.2.6 3.2 2.1 4 5.1h-2.9c-.6-1.9-2.1-3.4-4.1-3.6v3.6h-.4z"/></svg></a></li>
+            <li><a href="tel:+79123285131" aria-label="Позвонить"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></a></li>
+          </ul>
+        </div>
+        <div class="rv" style="--d:1">
+          <h2 class="foot-h">Разделы</h2>
+          <ul class="links">
+            <li><a href="#showcase">Витрина</a></li>
+            <li><a href="#how">Как заказать</a></li>
+            <li><a href="#order">Посчитать заказ</a></li>
+            <li><a href="#about">О нас</a></li>
+          </ul>
+        </div>
+        <div class="rv" style="--d:2">
+          <h2 class="foot-h">Адреса</h2>
+          <ul class="links">
+            <li><a href="#contacts">ул. Горького, 22</a></li>
+            <li><a href="#contacts">ул. Бейвеля, 37А</a></li>
+          </ul>
+        </div>
+        <div class="rv" style="--d:3">
+          <h2 class="foot-h">Связаться</h2>
+          <ul class="links">
+            <li><a href="tel:+79123285131">+7 (912) 328-51-31</a></li>
+            <li><a href="https://vk.com/mechta_bashnya" target="_blank" rel="noopener">vk.com/mechta_bashnya</a></li>
+          </ul>
+        </div>
+        <div class="mark rv" style="--d:4"><img src="assets/mechta-logo.svg" alt="" width="40" height="40"></div>
+      </div>
+
+      <p class="thanks split" data-split>Спасибо, что вы <em>с нами!</em></p>
+
+      <div class="legal">
+        <span>© <span id="year">2026</span> Семейная кондитерская «Мечта»</span>
+        <span>г. Челябинск, ул. Горького, 22 · ул. Бейвеля, 37А</span>
+        <a href="#home">Наверх ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js" defer></script>
+  <script src="js/showcase.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="js/nav.js" defer></script>
+</body>
+</html>
