@@ -45,25 +45,10 @@ export default function HeroSection() {
       </div>
 
       {/* Обёртка отвечает за позицию, FadeIn внутри — за анимацию: так transform-ы не конфликтуют */}
-      <div className="absolute left-1/2 top-1/2 z-10 w-[250px] -translate-x-1/2 -translate-y-1/2 sm:bottom-0 sm:top-auto sm:w-[320px] sm:translate-y-0 md:w-[380px] lg:w-[460px]">
+      <div className="absolute left-1/2 top-1/2 z-10 w-[280px] -translate-x-1/2 -translate-y-1/2 sm:bottom-0 sm:top-auto sm:w-[360px] sm:translate-y-0 md:w-[440px] lg:w-[520px]">
         <FadeIn delay={0.6} y={30}>
           <Magnet padding={150} strength={3} activeTransition="transform 0.3s ease-out" inactiveTransition="transform 0.6s ease-in-out">
-            {/* Низ фото растворяется в фоне (mask), чтобы светлая комната не «резала» тёмный сайт */}
-            <div
-              className="overflow-hidden rounded-[40px] border-2 border-[#D7E2EA]/25 sm:rounded-b-none sm:rounded-t-[60px] sm:border-b-0"
-              style={{
-                WebkitMaskImage: 'linear-gradient(to bottom, #000 62%, transparent 100%)',
-                maskImage: 'linear-gradient(to bottom, #000 62%, transparent 100%)',
-              }}
-            >
-              <img
-                src={HERO_PORTRAIT}
-                alt="Егор"
-                className="block w-full select-none"
-                style={{ filter: 'brightness(0.88) contrast(1.08)' }}
-                draggable={false}
-              />
-            </div>
+            <img src={HERO_PORTRAIT} alt="Егор" className="block w-full select-none" draggable={false} />
           </Magnet>
         </FadeIn>
       </div>
