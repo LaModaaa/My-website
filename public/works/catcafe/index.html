@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Котокафе — уютное кафе с котиками</title>
+  <meta name="description" content="Котокафе: пушистые котики, настольные игры, книги, фильмы и PS, кофе и чай.">
+  <meta name="theme-color" content="#f6f0e7">
+  <link rel="icon" href="assets/cat-logo.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    // Скрытые состояния анимаций включаются только с JS. Если основной скрипт не загрузился — показываем всё как есть.
+    document.documentElement.classList.add('js');
+    addEventListener('load', () => { if (!window.CAT_CAFE_UI) document.documentElement.classList.remove('js'); });
+  </script>
+</head>
+
+<body>
+  <!-- Спрайт SVG-иконок (контур в стиле Lucide) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-paw" viewBox="0 0 24 24"><g fill="currentColor" stroke="none"><ellipse cx="12" cy="15.5" rx="4.5" ry="3.8"/><circle cx="6.5" cy="10" r="2"/><circle cx="10" cy="6.5" r="2"/><circle cx="14" cy="6.5" r="2"/><circle cx="17.5" cy="10" r="2"/></g></symbol>
+    <symbol id="i-cat" viewBox="0 0 24 24"><path d="M12 5c.67 0 1.35.09 2 .26 1.78-2 5.03-2.84 6.42-2.26 1.4.58-.42 7-.42 7 .57 1.07 1 2.24 1 3.44C21 17.9 16.97 21 12 21s-9-3-9-7.56c0-1.25.5-2.4 1-3.44 0 0-1.89-6.42-.5-7 1.39-.58 4.72.23 6.5 2.23A9 9 0 0 1 12 5Z"/><path d="M8 14v.5M16 14v.5"/><path d="M11.25 16.25h1.5L12 17l-.75-.75Z"/></symbol>
+    <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+    <symbol id="i-dice" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><g fill="currentColor" stroke="none"><circle cx="8.5" cy="8.5" r="1.4"/><circle cx="15.5" cy="15.5" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="15.5" cy="8.5" r="1.4"/><circle cx="8.5" cy="15.5" r="1.4"/></g></symbol>
+    <symbol id="i-gamepad" viewBox="0 0 24 24"><path d="M6 11h4M8 9v4M15 12h.01M18 10h.01"/><path d="M17.32 5H6.68a4 4 0 0 0-3.98 3.59C2.6 9.42 2 14.46 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.41-1.41A2 2 0 0 1 9.83 16h4.34a2 2 0 0 1 1.41.59L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.55-.6-6.58-.69-7.26A4 4 0 0 0 17.32 5Z"/></symbol>
+    <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M10 2v2M14 2v2M6 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z"/></symbol>
+    <symbol id="i-percent" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m15 9-6 6M9 9h.01M15 15h.01"/></symbol>
+    <symbol id="i-party" viewBox="0 0 24 24"><path d="M5.8 11.3 2 22l10.7-3.79"/><path d="M4 3h.01M22 8h.01M15 2h.01M22 20h.01"/><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11-.11.7-.72 1.22-1.43 1.22H17"/><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7"/><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"/></symbol>
+    <symbol id="i-sofa" viewBox="0 0 24 24"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0Z"/><path d="M4 18v2M20 18v2M12 4v9"/></symbol>
+    <symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20M7 8v3M12 8v3M17 8v3M7 4h.01M12 4h.01M17 4h.01"/></symbol>
+    <symbol id="i-droplets" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05Z"/><path d="M12.56 6.6A11 11 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a7 7 0 0 1-11.91 4.97"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3Z"/><circle cx="12" cy="13" r="3"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M14.1 5.55a2 2 0 0 0 1.8 0l3.65-1.83A1 1 0 0 1 21 4.62v12.76a1 1 0 0 1-.55.9l-4.55 2.27a2 2 0 0 1-1.8 0l-4.2-2.1a2 2 0 0 0-1.8 0l-3.65 1.83A1 1 0 0 1 3 19.38V6.62a1 1 0 0 1 .55-.9L8.1 3.45a2 2 0 0 1 1.8 0Z"/><path d="M15 5.76v15M9 3.24v15"/></symbol>
+  </svg>
+
+  <a href="#main" class="skip">К содержимому</a>
+
+  <!-- ===================== Nav ===================== -->
+  <header class="nav" id="nav">
+    <div class="wrap nav-in">
+      <nav class="nav-l" aria-label="Основное меню">
+        <a class="pill" data-nav-link href="#home">Главная</a>
+        <a class="pill" data-nav-link href="#tariffs">Тарифы</a>
+        <a class="pill" data-nav-link href="#about">О нас</a>
+      </nav>
+      <a class="logo" href="#home" aria-label="Котокафе — на главную">
+        <img src="assets/cat-logo.svg" alt="" width="40" height="40">
+        <span>Котокафе</span>
+      </a>
+      <div class="nav-r">
+        <nav class="nav-r-links" aria-label="Основное меню, продолжение">
+          <a class="pill" data-nav-link href="#rules">Правила</a>
+          <a class="pill" data-nav-link href="#contacts">Контакты</a>
+        </nav>
+        <a class="btn-dark" href="#contacts">Забронировать место</a>
+        <button class="burger" id="burger" type="button" aria-controls="mmenu" aria-expanded="false" aria-label="Открыть меню"><i></i><i></i></button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mmenu" id="mmenu" aria-label="Мобильное меню" inert>
+    <a data-nav-link href="#home">Главная</a>
+    <a data-nav-link href="#tariffs">Тарифы</a>
+    <a data-nav-link href="#about">О нас</a>
+    <a data-nav-link href="#rules">Правила</a>
+    <a data-nav-link href="#contacts">Контакты</a>
+    <a class="btn-dark" href="#contacts">Забронировать место</a>
+  </nav>
+
+  <main id="main">
+    <!-- ===================== Hero ===================== -->
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="hero-head">
+          <p class="hero-loc rv" style="--base:300ms"><svg class="ic" aria-hidden="true"><use href="#i-map-pin"/></svg>ул. Пушистая, 7</p>
+          <h1 class="h-display split" data-split style="--base:150ms">Котокафе</h1>
+          <p class="hero-sub rv" style="--base:700ms">«Жду тебя в гости. Место уже грею.»</p>
+          <div class="hero-cta rv" style="--base:780ms">
+            <a class="btn-dark btn-lg" href="#contacts">Забронировать место</a>
+            <a class="btn-line btn-lg" href="#tariffs">Посмотреть тарифы</a>
+          </div>
+        </div>
+
+        <div class="hero-card rv rv-scale" style="--base:850ms">
+          <div class="media kb scene scene-hero" aria-hidden="true"></div>
+          <div class="shade" aria-hidden="true"></div>
+
+          <div class="studio" id="studio">
+            <div class="chat" aria-label="Пример переписки с котокафе">
+              <div class="chat-top msg">Чат с котокафе <svg class="ic" aria-hidden="true"><use href="#i-chevron"/></svg></div>
+              <div class="bubble msg">Привет! Хочу заглянуть в будни часа на два. Во сколько обойдётся?</div>
+              <div class="ai msg"><div class="ai-ic"><img src="assets/cat-logo.svg" alt="" width="20" height="20"></div><div class="ai-t" data-chat="price"></div></div>
+              <div class="bubble msg">А если засижусь до вечера?</div>
+              <div class="ai msg"><div class="ai-ic"><img src="assets/cat-logo.svg" alt="" width="20" height="20"></div><div class="ai-t" data-chat="stop"></div></div>
+              <div class="cd msg">
+                <div><small>Ваш визит</small><strong>Будни · 2 часа</strong></div>
+                <div class="slider"><small>До стоп-чека</small><div class="track"><b id="hero-track"></b></div></div>
+              </div>
+            </div>
+            <div class="prod">
+              <span class="msg">Сегодня мурчат</span>
+              <figure id="hero-fig" class="msg">
+                <svg class="art" viewBox="0 0 400 360" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Рыжий кот спит на подушке рядом с чашкой кофе">
+                  <defs>
+                    <linearGradient id="fig-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7dcbc"/><stop offset="1" stop-color="#e8b98d"/></linearGradient>
+                    <radialGradient id="fig-sun" cx=".78" cy=".18" r=".55"><stop offset="0" stop-color="#fff3dc"/><stop offset="1" stop-color="#fff3dc" stop-opacity="0"/></radialGradient>
+                  </defs>
+                  <rect x="-200" y="-100" width="800" height="560" fill="url(#fig-bg)"/>
+                  <rect x="-200" y="-100" width="800" height="560" fill="url(#fig-sun)"/>
+                  <g fill="#fff8ec" opacity=".35"><path d="M250 -40 l60 0 -120 420 -60 0z"/><path d="M340 -40 l30 0 -120 420 -30 0z"/></g>
+                  <g font-family="Inter Tight, sans-serif" font-style="italic" font-weight="300" fill="#5b4a3f">
+                    <text class="zzz" x="268" y="108" font-size="28">z</text>
+                    <text class="zzz" x="290" y="86" font-size="22">z</text>
+                    <text class="zzz" x="306" y="68" font-size="16">z</text>
+                  </g>
+                  <ellipse cx="200" cy="292" rx="170" ry="44" fill="#7a5a44"/>
+                  <ellipse cx="200" cy="280" rx="160" ry="38" fill="#a57b5c"/>
+                  <path d="M70 280 Q200 300 330 280" stroke="#7a5a44" stroke-width="3" fill="none" opacity=".5"/>
+                  <g class="cat-breathe">
+                    <path d="M300 250 Q360 250 350 205 Q342 175 312 190" stroke="#E8833A" stroke-width="26" fill="none" stroke-linecap="round"/>
+                    <path d="M300 250 Q360 250 350 205 Q342 175 312 190" stroke="#C9661F" stroke-width="26" fill="none" stroke-linecap="round" stroke-dasharray="10 18" opacity=".45"/>
+                    <ellipse cx="225" cy="215" rx="105" ry="62" fill="#E8833A"/>
+                    <path d="M180 162 Q192 200 178 262 M220 156 Q232 200 220 270 M262 162 Q272 200 262 266" stroke="#C9661F" stroke-width="9" fill="none" stroke-linecap="round" opacity=".5"/>
+                    <path d="M95 190 L92 128 L135 158 Z" fill="#E8833A"/>
+                    <path d="M178 172 L190 115 L145 150 Z" fill="#E8833A"/>
+                    <path d="M102 172 L101 142 L124 158 Z" fill="#F6B98A"/>
+                    <path d="M172 160 L180 132 L157 150 Z" fill="#F6B98A"/>
+                    <ellipse cx="140" cy="205" rx="62" ry="52" fill="#E8833A"/>
+                    <ellipse cx="140" cy="226" rx="32" ry="22" fill="#FCE3CC"/>
+                    <path d="M110 200 Q120 208 130 200 M150 200 Q160 208 170 200" stroke="#2a1a12" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <path d="M134 216 h12 l-6 7 z" fill="#C2410C"/>
+                    <path d="M140 223 q-4 7 -10 4 M140 223 q4 7 10 4" stroke="#7A4B2A" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+                    <path d="M78 218 L108 222 M80 232 L108 228 M202 218 L172 222 M200 232 L172 228" stroke="#FCE3CC" stroke-width="2.4" stroke-linecap="round"/>
+                    <ellipse cx="114" cy="214" rx="9" ry="5" fill="#F6B98A" opacity=".8"/>
+                    <ellipse cx="166" cy="214" rx="9" ry="5" fill="#F6B98A" opacity=".8"/>
+                    <ellipse cx="160" cy="262" rx="26" ry="14" fill="#F39A55"/>
+                    <ellipse cx="205" cy="268" rx="26" ry="14" fill="#F39A55"/>
+                  </g>
+                  <g transform="translate(36 222)">
+                    <path d="M0 18 h52 l-6 40 a8 8 0 0 1 -8 7 h-24 a8 8 0 0 1 -8 -7 z" fill="#fffaf2"/>
+                    <path d="M52 26 q16 2 12 16 q-3 9 -14 8" stroke="#fffaf2" stroke-width="6" fill="none"/>
+                    <ellipse cx="26" cy="18" rx="26" ry="6" fill="#5c463a"/>
+                    <path d="M16 6 q-6 -8 2 -14 M30 4 q-6 -8 2 -14" stroke="#a0673d" stroke-width="3" fill="none" stroke-linecap="round" opacity=".6"/>
+                  </g>
+                </svg>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Тарифы ===================== -->
+    <section class="s-tariffs" id="tariffs" aria-labelledby="tariffs-title">
+      <div class="wrap">
+        <div class="tariff-shell">
+          <div class="sec-head">
+            <span class="eyebrow rv">Сколько стоит мурчание</span>
+            <h2 class="h2 split" id="tariffs-title" data-split>Наши <span class="lt">тарифы</span></h2>
+            <p class="lead rv" style="--d:3">Стоимость указана за 1 гостя. Первый час оплачивается целиком, дальше — поминутно.</p>
+          </div>
+
+          <div class="tabs rv" style="--d:4">
+            <div role="tablist" aria-label="День посещения" class="tablist">
+              <button type="button" role="tab" id="tab-weekday" aria-controls="tariff-cards" data-day-tab="weekday" class="tab">Будни</button>
+              <button type="button" role="tab" id="tab-weekend" aria-controls="tariff-cards" data-day-tab="weekend" class="tab">Выходные и праздники</button>
+            </div>
+          </div>
+
+          <div id="tariff-cards" role="tabpanel" aria-live="polite" class="price-grid">
+            <!-- Базовый -->
+            <article class="price-card rv" style="--d:1">
+              <span class="pc-ic" aria-hidden="true"><svg class="ic"><use href="#i-paw"/></svg></span>
+              <h3>Базовый</h3>
+              <p class="sub">Для всех гостей <span data-day-label></span></p>
+              <p class="price"><span data-tariff="base" data-field="hour"></span><em>/ час</em></p>
+              <p class="per" data-tariff="base" data-field="perMin"></p>
+              <div class="divider"></div>
+              <p class="stop" data-tariff="base" data-field="stop"></p>
+              <div class="pc-foot"><a class="btn-line btn-block" href="#calculator">Рассчитать визит</a></div>
+            </article>
+
+            <!-- Льготный (основной) -->
+            <article class="price-card is-featured rv" style="--d:2">
+              <span class="ribbon"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg>Самый выгодный</span>
+              <span class="pc-ic" aria-hidden="true"><svg class="ic"><use href="#i-percent"/></svg></span>
+              <h3>Льготный</h3>
+              <p class="sub">Для особенных гостей <span data-day-label></span></p>
+              <p class="price"><span data-tariff="discount" data-field="hour"></span><em>/ час</em></p>
+              <p class="per" data-tariff="discount" data-field="perMin"></p>
+              <div class="divider"></div>
+              <p class="stop" data-tariff="discount" data-field="stop"></p>
+              <ul class="checks">
+                <li>Дети</li>
+                <li>Студенты</li>
+                <li>Именинники и их друзья</li>
+                <li>Многодетные семьи</li>
+                <li>Пенсионеры</li>
+                <li>Гости с ОВЗ</li>
+              </ul>
+              <div class="pc-foot"><a class="btn-ginger btn-block" href="#calculator">Рассчитать визит</a></div>
+            </article>
+
+            <!-- Аренда зала -->
+            <article class="price-card rv" style="--d:3">
+              <span class="pc-ic" aria-hidden="true"><svg class="ic"><use href="#i-party"/></svg></span>
+              <h3>Аренда зала</h3>
+              <p class="sub">Весь зал для вашей компании <span data-day-label></span></p>
+              <p class="price"><span data-tariff="hall" data-field="hour"></span><em>/ час</em></p>
+              <p class="per">До 10 человек</p>
+              <div class="divider"></div>
+              <p class="note-box"><strong>Примечание:</strong> дополнительные гости оплачиваются по базовому тарифу.</p>
+              <div class="pc-foot"><a class="btn-line btn-block" href="#contacts">Арендовать зал</a></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Калькулятор ===================== -->
+    <section class="s-calc" id="calculator" data-nav-section="tariffs" aria-labelledby="calc-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow rv">Без сюрпризов</span>
+          <h2 class="h2 split" id="calc-title" data-split>Калькулятор <span class="lt">визита</span></h2>
+          <p class="lead rv" style="--d:3">Выберите тариф, день и время — стоимость посчитается сразу, с учётом стоп-чека.</p>
+        </div>
+
+        <form id="calc" class="calc rv rv-scale">
+          <div class="calc-l">
+            <fieldset>
+              <legend>Категория гостя</legend>
+              <div class="seg">
+                <label><input type="radio" name="category" value="base" class="sr-only" checked><span>Обычный</span></label>
+                <label><input type="radio" name="category" value="discount" class="sr-only"><span>Льготный</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>День посещения</legend>
+              <div class="seg">
+                <label><input type="radio" name="day" value="weekday" class="sr-only" checked><span>Будни</span></label>
+                <label><input type="radio" name="day" value="weekend" class="sr-only"><span>Выходной</span></label>
+              </div>
+            </fieldset>
+
+            <div>
+              <div class="calc-row">
+                <label for="calc-time" class="calc-lbl">Время в котокафе</label>
+                <output id="calc-time-out" for="calc-time" class="calc-time"></output>
+              </div>
+              <input id="calc-time" type="range" min="15" max="360" step="15" value="120" class="range">
+              <div class="ticks" aria-hidden="true"><span>15 мин</span><span>2 ч</span><span>4 ч</span><span>6 ч</span></div>
+            </div>
+
+            <div class="calc-row guests">
+              <label for="calc-guests" class="calc-lbl">Количество гостей</label>
+              <div class="stepper">
+                <button type="button" data-guests="-" aria-label="Уменьшить количество гостей">−</button>
+                <input id="calc-guests" type="number" min="1" max="10" value="1" inputmode="numeric">
+                <button type="button" data-guests="+" aria-label="Увеличить количество гостей">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-r" aria-live="polite">
+            <svg class="ic calc-paw" aria-hidden="true"><use href="#i-paw"/></svg>
+            <div>
+              <p class="lbl">На одного гостя</p>
+              <p id="calc-per-guest" class="calc-per"></p>
+              <p id="calc-breakdown" class="calc-break"></p>
+              <p id="calc-stop" hidden class="calc-stop"><svg class="ic" aria-hidden="true"><use href="#i-paw"/></svg> Сработал стоп-чек — дальше бесплатно!</p>
+            </div>
+            <div class="calc-sum">
+              <p class="lbl">Итого</p>
+              <p id="calc-total" class="calc-total"></p>
+              <a class="btn-ginger btn-block" href="#contacts">Забронировать место</a>
+            </div>
+          </div>
+        </form>
+        <p class="calc-note rv">Расчёт предварительный. Для льготного тарифа может потребоваться подтверждающий документ.</p>
+      </div>
+    </section>
+
+    <!-- ===================== О нас (bento) ===================== -->
+    <section class="s-bento" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <div class="bento-shell">
+          <div class="media kb scene scene-bento" aria-hidden="true"></div>
+          <div class="sec-head">
+            <span class="eyebrow rv">Мур-знакомство</span>
+            <h2 class="h2 split" id="about-title" data-split>О <span class="lt">нас</span></h2>
+            <p class="lead lead-wide rv" style="--d:3">
+              Котокафе — это тёплый дом в центре города, где живут наши хвостатые хозяева.
+              Здесь можно выдохнуть после учёбы или работы, поиграть в настолки с друзьями, посмотреть фильм,
+              почитать книгу — и всё это под мурчание котиков на коленях.
+            </p>
+          </div>
+
+          <div class="bento">
+            <article class="card c-big rv" style="--d:1">
+              <svg class="c-big-art" viewBox="0 0 400 560" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                <defs>
+                  <linearGradient id="big-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c98a5c"/><stop offset=".55" stop-color="#f1c79c"/><stop offset="1" stop-color="#f6dcbd"/></linearGradient>
+                </defs>
+                <rect x="-300" y="0" width="1000" height="560" fill="url(#big-bg)"/>
+                <g fill="#fff6e8" opacity=".25"><path d="M260 0 h70 L170 560 h-70z"/><path d="M370 0 h36 L246 560 h-36z"/></g>
+                <path d="M88 360 L112 228 L188 318 Z" fill="#E8833A"/>
+                <path d="M312 360 L288 228 L212 318 Z" fill="#E8833A"/>
+                <path d="M106 330 L120 262 L160 312 Z" fill="#F6B98A"/>
+                <path d="M294 330 L280 262 L240 312 Z" fill="#F6B98A"/>
+                <ellipse cx="200" cy="440" rx="170" ry="140" fill="#E8833A"/>
+                <path d="M170 312 Q200 340 230 312 M182 306 L188 344 M218 306 L212 344" stroke="#C9661F" stroke-width="7" fill="none" stroke-linecap="round" opacity=".55"/>
+                <ellipse cx="200" cy="490" rx="70" ry="48" fill="#FCE3CC"/>
+                <ellipse cx="146" cy="420" rx="18" ry="23" fill="#2a1a12"/>
+                <ellipse cx="254" cy="420" rx="18" ry="23" fill="#2a1a12"/>
+                <circle cx="152" cy="412" r="6" fill="#fff"/>
+                <circle cx="260" cy="412" r="6" fill="#fff"/>
+                <path d="M190 470 h20 l-10 11 z" fill="#C2410C"/>
+                <path d="M200 481 q-6 11 -16 6 M200 481 q6 11 16 6" stroke="#7A4B2A" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M40 468 L120 476 M44 494 L120 488 M360 468 L280 476 M356 494 L280 488" stroke="#FCE3CC" stroke-width="3" stroke-linecap="round"/>
+                <ellipse cx="118" cy="455" rx="16" ry="9" fill="#F6B98A" opacity=".8"/>
+                <ellipse cx="282" cy="455" rx="16" ry="9" fill="#F6B98A" opacity=".8"/>
+                <ellipse cx="128" cy="560" rx="44" ry="26" fill="#F39A55"/>
+                <ellipse cx="272" cy="560" rx="44" ry="26" fill="#F39A55"/>
+              </svg>
+              <div>
+                <h3>Котики-жители<br><span>и их тёплый дом.</span></h3>
+                <p class="desc">Рыжие, полосатые, пушистые и не очень — у каждого свой характер и история.</p>
+              </div>
+              <div>
+                <p class="desc desc-strong">Все наши коты здоровы, привиты и очень любят гостей. А некоторые из них ищут дом — спросите у администратора!</p>
+                <a class="btn-white" href="#contacts">Приходите знакомиться</a>
+              </div>
+            </article>
+
+            <article class="card c-pad c-list rv" style="--d:2">
+              <ul class="rows" aria-label="Что вас ждёт">
+                <li class="row" style="--i:0"><span class="ri" aria-hidden="true"><svg class="ic"><use href="#i-cat"/></svg></span><b>Пушистые котики :-)</b><span class="ok" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span></li>
+                <li class="row" style="--i:1"><span class="ri" aria-hidden="true"><svg class="ic"><use href="#i-utensils"/></svg></span><b>Можно со своей едой</b><span class="ok" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span></li>
+                <li class="row" style="--i:2"><span class="ri" aria-hidden="true"><svg class="ic"><use href="#i-dice"/></svg></span><b>Настольные игры</b><span class="ok" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span></li>
+                <li class="row" style="--i:3"><span class="ri" aria-hidden="true"><svg class="ic"><use href="#i-gamepad"/></svg></span><b>Книги, фильмы и PS</b><span class="ok" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span></li>
+                <li class="row" style="--i:4"><span class="ri" aria-hidden="true"><svg class="ic"><use href="#i-coffee"/></svg></span><b>Кофе, чай и WiFi</b><span class="ok" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg></span></li>
+              </ul>
+              <div class="txt"><h4>Что вас ждёт</h4></div>
+            </article>
+
+            <article class="card c-pad rv" style="--d:3">
+              <div class="insight insight-sofa" aria-hidden="true">
+                <svg class="ic insight-ic"><use href="#i-sofa"/></svg>
+                <span class="chip"><i></i>Тёплый свет</span>
+              </div>
+              <div class="txt"><h4>Домашняя атмосфера</h4><p>Мягкие диваны, пледы, дерево и тёплый свет.</p></div>
+            </article>
+
+            <article class="card c-pad rv" style="--d:4">
+              <div class="insight insight-cake" aria-hidden="true">
+                <svg class="ic insight-ic"><use href="#i-cake"/></svg>
+                <span class="chip"><i></i>Аренда зала</span>
+              </div>
+              <div class="txt"><h4>Праздники</h4><p>Дни рождения, встречи и детские праздники в арендованном зале.</p></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Правила ===================== -->
+    <section class="s-rules" id="rules" aria-labelledby="rules-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow rv">Чтобы всем было хорошо</span>
+          <h2 class="h2 split" id="rules-title" data-split>Правила <span class="lt">котокафе</span></h2>
+          <p class="lead rv" style="--d:3">Коты здесь хозяева, а мы — их гости. Несколько простых правил помогут подружиться.</p>
+        </div>
+
+        <ol class="rules">
+          <li class="g-card rule rv" style="--d:1"><span class="rule-ic" aria-hidden="true"><svg class="ic"><use href="#i-droplets"/></svg></span><div><span class="lbl" aria-hidden="true">01</span><h3>Моем руки</h3><p>Перед тем как гладить котиков — и после еды.</p></div></li>
+          <li class="g-card rule rv" style="--d:2"><span class="rule-ic" aria-hidden="true"><svg class="ic"><use href="#i-moon"/></svg></span><div><span class="lbl" aria-hidden="true">02</span><h3>Не будим спящих</h3><p>Сон для кота — святое. Подождите, пока проснётся сам.</p></div></li>
+          <li class="g-card rule rv" style="--d:3"><span class="rule-ic" aria-hidden="true"><svg class="ic"><use href="#i-ban"/></svg></span><div><span class="lbl" aria-hidden="true">03</span><h3>Не кормим котов</h3><p>Своя еда — для вас. У котиков строгая диета.</p></div></li>
+          <li class="g-card rule rv" style="--d:4"><span class="rule-ic" aria-hidden="true"><svg class="ic"><use href="#i-heart"/></svg></span><div><span class="lbl" aria-hidden="true">04</span><h3>На ручки — по желанию кота</h3><p>Не тянем за хвост и лапки, не берём силой.</p></div></li>
+          <li class="g-card rule rv" style="--d:5"><span class="rule-ic" aria-hidden="true"><svg class="ic"><use href="#i-users"/></svg></span><div><span class="lbl" aria-hidden="true">05</span><h3>Дети — со взрослыми</h3><p>Маленькие гости находятся под присмотром родителей.</p></div></li>
+          <li class="g-card rule rv" style="--d:6"><span class="rule-ic" aria-hidden="true"><svg class="ic"><use href="#i-camera"/></svg></span><div><span class="lbl" aria-hidden="true">06</span><h3>Фото без вспышки</h3><p>Фотографируйте сколько угодно — только без яркого света.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== Контакты + CTA ===================== -->
+    <section class="s-contacts" id="contacts" aria-labelledby="contacts-title">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow rv">Мы рядом</span>
+          <h2 class="h2 split" id="contacts-title" data-split>Контакты</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="g-card contact-card rv" style="--d:1">
+            <div class="c-row">
+              <span class="c-ic" aria-hidden="true"><svg class="ic"><use href="#i-map-pin"/></svg></span>
+              <div>
+                <h3 class="lbl">Адрес</h3>
+                <address>ул. Пушистая, д. 7</address>
+              </div>
+            </div>
+            <div class="c-row">
+              <span class="c-ic" aria-hidden="true"><svg class="ic"><use href="#i-clock"/></svg></span>
+              <div>
+                <h3 class="lbl">Режим работы</h3>
+                <p>Ежедневно, 10:00 – 22:00</p>
+              </div>
+            </div>
+            <div class="c-actions">
+              <a class="btn-dark btn-block" href="#calculator">Забронировать место</a>
+              <a class="btn-line btn-block" href="#contacts">
+                Построить маршрут
+              </a>
+            </div>
+          </div>
+
+          <div class="map rv" style="--d:2">
+            <div class="map-ph" aria-hidden="true">
+              <svg class="ic"><use href="#i-map"/></svg>
+              <span>Здесь будет карта</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta rv rv-scale">
+          <div class="media kb scene scene-cta" aria-hidden="true"></div>
+          <svg class="cta-art" data-parallax viewBox="0 0 300 380" aria-hidden="true">
+            <path d="M218 330 Q296 322 286 250 Q280 205 246 214" stroke="#E8833A" stroke-width="24" fill="none" stroke-linecap="round"/>
+            <path d="M218 330 Q296 322 286 250 Q280 205 246 214" stroke="#C9661F" stroke-width="24" fill="none" stroke-linecap="round" stroke-dasharray="9 16" opacity=".45"/>
+            <ellipse cx="150" cy="290" rx="100" ry="88" fill="#E8833A"/>
+            <path d="M110 214 Q120 260 108 320 M150 206 Q160 260 150 330 M190 214 Q200 260 192 320" stroke="#C9661F" stroke-width="8" fill="none" stroke-linecap="round" opacity=".5"/>
+            <ellipse cx="150" cy="300" rx="46" ry="60" fill="#FCE3CC"/>
+            <path d="M88 132 L96 50 L142 96 Z" fill="#E8833A"/>
+            <path d="M212 132 L204 50 L158 96 Z" fill="#E8833A"/>
+            <path d="M100 116 L104 72 L130 98 Z" fill="#F6B98A"/>
+            <path d="M200 116 L196 72 L170 98 Z" fill="#F6B98A"/>
+            <ellipse cx="150" cy="140" rx="76" ry="68" fill="#E8833A"/>
+            <ellipse cx="150" cy="164" rx="38" ry="26" fill="#FCE3CC"/>
+            <path d="M112 132 Q122 122 132 132 M168 132 Q178 122 188 132" stroke="#2a1a12" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M143 152 h14 l-7 8 z" fill="#C2410C"/>
+            <path d="M150 160 q-5 8 -12 5 M150 160 q5 8 12 5" stroke="#7A4B2A" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <path d="M70 156 L112 160 M72 172 L112 166 M230 156 L188 160 M228 172 L188 166" stroke="#FCE3CC" stroke-width="2.6" stroke-linecap="round"/>
+            <ellipse cx="122" cy="370" rx="30" ry="16" fill="#F39A55"/>
+            <ellipse cx="178" cy="370" rx="30" ry="16" fill="#F39A55"/>
+          </svg>
+          <h2 class="split" data-split>Место<br>уже грею</h2>
+          <p class="rv" style="--d:2">Пушистые котики, настольные игры, книги, фильмы и PS, кофе и чай — в самом центре города.</p>
+          <div class="cta-actions rv" style="--d:3">
+            <a class="btn-dark btn-lg" href="#calculator">Забронировать место</a>
+            <a class="btn-glass btn-lg" href="#tariffs">Посмотреть тарифы</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="about rv">
+          <a class="foot-brand" href="#home"><img src="assets/cat-logo.svg" alt="" width="36" height="36">Котокафе</a>
+          <p>Мы работаем для вас и наших хвостатых гостей!</p>
+          <!-- TODO: подставить реальные ссылки на соцсети -->
+          <ul class="socials" aria-label="Мы в соцсетях">
+            <li><a href="#" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.8 17.5c-5.5 0-8.6-3.8-8.7-10h2.8c.1 4.6 2.1 6.5 3.7 6.9V7.5h2.6v3.9c1.6-.2 3.3-2 3.8-3.9h2.6c-.4 2.4-2.2 4.2-3.4 4.9 1.2.6 3.2 2.1 4 5.1h-2.9c-.6-1.9-2.1-3.4-4.1-3.6v3.6h-.4z"/></svg></a></li>
+            <li><a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.7 4.3 2.9 11.2c-1.2.5-1.2 1.2-.2 1.5l4.6 1.4 1.8 5.4c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.2-2.1 4.6 3.4c.8.5 1.4.2 1.6-.8l3-14.1c.3-1.2-.5-1.8-1.6-1.3zM8.6 13.7l9.4-5.9c.5-.3.9-.1.5.2l-7.8 7.1-.3 3.3-1.8-4.7z"/></svg></a></li>
+            <li><a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.7-.5z"/></svg></a></li>
+          </ul>
+        </div>
+        <div class="rv" style="--d:1">
+          <h2 class="foot-h">Разделы</h2>
+          <ul class="links">
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#tariffs">Тарифы</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#rules">Правила</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="rv" style="--d:2">
+          <h2 class="foot-h">Гостям</h2>
+          <ul class="links">
+            <li><a href="#calculator">Калькулятор визита</a></li>
+            <li><a href="#tariffs">Аренда зала</a></li>
+            <li><a href="privacy.html">Политика конфиденциальности</a></li>
+          </ul>
+        </div>
+        <div class="rv" style="--d:3">
+          <h2 class="foot-h">Как нас найти</h2>
+          <ul class="links">
+            <li><a href="#contacts">ул. Пушистая, 7</a></li>
+          </ul>
+        </div>
+        <div class="mark rv" style="--d:4"><img src="assets/cat-logo.svg" alt="" width="40" height="40"></div>
+      </div>
+
+      <p class="thanks split" data-split>СПАСИБО, ЧТО ВЫ С НАМИ!</p>
+
+      <div class="legal">
+        <span>© <span id="year">2026</span> Котокафе · демо-проект для портфолио</span>
+        <a href="privacy.html">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js" defer></script>
+  <script src="js/tariffs.js" defer></script>
+  <script src="js/calculator.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="js/nav.js" defer></script>
+</body>
+</html>
