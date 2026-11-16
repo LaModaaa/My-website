@@ -9,7 +9,6 @@ export const CONTACTS = {
 
 export const NAV = [
   { label: 'Обо мне', href: '#about' },
-  { label: 'Услуги', href: '#services' },
   { label: 'Проекты', href: '#projects' },
   { label: 'Контакты', href: '#contact' },
 ]
@@ -18,7 +17,7 @@ export const HERO_PORTRAIT =
   'https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png'
 
 export const ABOUT_TEXT =
-  'Я Егор, делаю сайты для бизнеса и вкладываю в каждый проект душу. Кондитерская, компьютерный клуб, котокафе – мне нравится погружаться в чужое дело и показывать его с лучшей стороны. Расскажите о своей идее, и давайте сделаем что-то по-настоящему крутое вместе!'
+  'Я Егор, делаю сайты для бизнеса и вкладываю в каждый проект душу. Кофейня, компьютерный клуб, барбершоп – мне нравится погружаться в чужое дело и показывать его с лучшей стороны. Расскажите о своей идее, и давайте сделаем что-то по-настоящему крутое вместе!'
 
 const FIGMA = 'https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7'
 export const ABOUT_DECOR = {
@@ -61,11 +60,11 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    name: '«Мечта»',
-    category: 'Кондитерская',
-    description: 'Семейная кондитерская в Челябинске: торты по ГОСТу, витрина с десертами и свадебные торты.',
-    url: asset('works/mechta/index.html'),
-    images: [asset('shots/mechta-d1.webp'), asset('shots/mechta-d3.webp'), asset('shots/mechta-phones.webp')],
+    name: 'ZERNO',
+    category: 'Кофейня',
+    description: 'Кофейня в Оренбурге: завтраки весь день, меню с вкладками, лимонады и бабл-ти.',
+    url: 'https://lamodaaa.github.io/zerno/',
+    images: [asset('shots/zerno-d1.webp'), asset('shots/zerno-d3.webp'), asset('shots/zerno-phones.webp')],
   },
   {
     name: 'Space Capsula',
@@ -75,11 +74,11 @@ export const PROJECTS: Project[] = [
     images: [asset('shots/capsula-d1.webp'), asset('shots/capsula-d3.webp'), asset('shots/capsula-phones.webp')],
   },
   {
-    name: 'Котокафе',
-    category: 'Кафе',
-    description: 'Уютное котокафе: тарифы «будни / выходные» и калькулятор стоимости визита.',
-    url: asset('works/catcafe/index.html'),
-    images: [asset('shots/catcafe-d1.webp'), asset('shots/catcafe-d3.webp'), asset('shots/catcafe-phones.webp')],
+    name: 'MRinBLACK',
+    category: 'Барбершоп',
+    description: 'Барбершоп в Сургуте: услуги и цены, работы мастеров и онлайн-запись.',
+    url: 'https://mrinblack.ru/',
+    images: [asset('shots/mrinblack-d1.webp'), asset('shots/mrinblack-d3.webp'), asset('shots/mrinblack-phones.webp')],
   },
 ]
 

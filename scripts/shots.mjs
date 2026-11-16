@@ -12,10 +12,10 @@ const BROWSER = [
 ].find((p) => fs.existsSync(p))
 
 const SITES = [
-  { slug: 'mechta', url: `${BASE}/mechta/index.html` },
+  { slug: 'zerno', url: 'https://lamodaaa.github.io/zerno/' },
   { slug: 'capsula', url: `${BASE}/capsula/index.html` },
-  { slug: 'catcafe', url: `${BASE}/catcafe/index.html` },
-]
+  { slug: 'mrinblack', url: 'https://mrinblack.ru/' },
+].filter((s) => !process.argv[3] || process.argv[3].split(',').includes(s.slug)) // 2-й аргумент: только эти сайты
 
 const DESKTOP_SHOTS = 9
 const MOBILE_POSITIONS = [0, 0.3, 0.6]
